@@ -19,6 +19,7 @@
 		5BFCAE9B262AD61C001CCBAE /* CheckoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE9A262AD61C001CCBAE /* CheckoutTests.swift */; };
 		5BFCAEA0262B18EC001CCBAE /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE9F262B18EC001CCBAE /* Checkout.swift */; };
 		5BFCAEA6262B193D001CCBAE /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEA5262B193D001CCBAE /* Offer.swift */; };
+		5BFCAEAC262B19C8001CCBAE /* TwoForOneOfferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5BFCAE9A262AD61C001CCBAE /* CheckoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTests.swift; sourceTree = "<group>"; };
 		5BFCAE9F262B18EC001CCBAE /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
 		5BFCAEA5262B193D001CCBAE /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoForOneOfferTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +106,9 @@
 			children = (
 				5BFCAE67262ABA67001CCBAE /* DataRepositoryTests.swift */,
 				5BFCAE77262AC1A3001CCBAE /* ProductAsCodableTests.swift */,
-				5BFCAE69262ABA67001CCBAE /* Info.plist */,
 				5BFCAE9A262AD61C001CCBAE /* CheckoutTests.swift */,
+				5BFCAE69262ABA67001CCBAE /* Info.plist */,
+				5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */,
 			);
 			path = StoreCheckoutTests;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BFCAEAC262B19C8001CCBAE /* TwoForOneOfferTests.swift in Sources */,
 				5BFCAE78262AC1A3001CCBAE /* ProductAsCodableTests.swift in Sources */,
 				5BFCAE68262ABA67001CCBAE /* DataRepositoryTests.swift in Sources */,
 				5BFCAE9B262AD61C001CCBAE /* CheckoutTests.swift in Sources */,
