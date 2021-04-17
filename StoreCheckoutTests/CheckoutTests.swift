@@ -26,7 +26,10 @@ class Checkout {
     }
 
     var costAfterReductions: Float {
-        costBeforeReductions
+        let reductions = offers.reduce(0, { reductions, offer in
+            return reductions + offer.discount(over: products)
+        })
+        return costBeforeReductions - reductions
     }
 }
 
@@ -48,5 +51,26 @@ class CheckoutTests: XCTestCase {
 
         XCTAssertEqual(checkout.costBeforeReductions, 31)
         XCTAssertEqual(checkout.costAfterReductions, 31)
+    }
+
+    func test_productCost_appliesDiscountWhenOfferApply() throws {
+        let checkout = Checkout(products: [
+            StoreProduct(code: "VOUCHER", name: "Voucher", price: 5),
+            StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20),
+            StoreProduct(code: "MUG", name: "Coffee Mug", price: 6)
+        ], offers: [
+            DummyOffer()
+        ])
+
+        XCTAssertEqual(checkout.costBeforeReductions, 31.0)
+        XCTAssertEqual(checkout.costAfterReductions, 30.0, accuracy: 0.001)
+    }
+
+    struct DummyOffer: Offer {
+        var appliedDiscount = 1
+
+        func discount(over: [StoreProduct]) -> Float {
+            return Float(appliedDiscount)
+        }
     }
 }
