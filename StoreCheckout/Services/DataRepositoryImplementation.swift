@@ -11,15 +11,15 @@ public protocol HTTPClient {
     func get(from url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void)
 }
 
-class DataRepositoryImplementation: DataRepository {
+public class DataRepositoryImplementation: DataRepository {
     let client: HTTPClient
     let downloadURL = URL(string: "https://gist.githubusercontent.com/palcalde/6c19259bd32dd6aafa327fa557859c2f/raw/ba51779474a150ee4367cda4f4ffacdcca479887/Products.json")!
 
-    init(client: HTTPClient) {
+    public init(client: HTTPClient) {
         self.client = client
     }
 
-    func retrieveProducts(onComplete completion: @escaping ([StoreProduct]) -> Void) -> Void {
+    public func retrieveProducts(onComplete completion: @escaping ([StoreProduct]) -> Void) -> Void {
         _ = client.get(from: downloadURL) { result in
             switch result {
             case .failure: completion([])

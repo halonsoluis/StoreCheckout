@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DataRepository {
+public protocol DataRepository {
     func retrieveProducts(onComplete completion: @escaping ([StoreProduct]) -> Void) -> Void
 }
