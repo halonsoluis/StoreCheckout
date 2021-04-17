@@ -14,7 +14,7 @@ class BulkDiscountOfferTests: XCTestCase {
     let tShirt = StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20)
     let mug = StoreProduct(code: "MUG", name: "Coffee Mug", price: 7.5)
 
-    static let tShirtDiscount = BulkDiscount.BulkConfig(code: "TSHIRT", newPrice: 19, minimumAmount: 3)
+    static let tShirtDiscount = BulkDiscount.Config(code: "TSHIRT", newPrice: 19, minimumAmount: 3)
 
     func test_offer_returnsNoDiscountOnEmptyBasket() throws {
         assert(discount: createSUT(), for: [], is: 0)
@@ -37,8 +37,8 @@ class BulkDiscountOfferTests: XCTestCase {
     }
 
     func test_severalOffers_returnDiscountForMoreThanTheMinimumOfRepeatedProducts() throws {
-        let tShirtDiscount = BulkDiscount.BulkConfig(code: "TSHIRT", newPrice: 19, minimumAmount: 3)
-        let voucherDiscount = BulkDiscount.BulkConfig(code: "VOUCHER", newPrice: 3, minimumAmount: 2)
+        let tShirtDiscount = BulkDiscount.Config(code: "TSHIRT", newPrice: 19, minimumAmount: 3)
+        let voucherDiscount = BulkDiscount.Config(code: "VOUCHER", newPrice: 3, minimumAmount: 2)
 
         assert(
             discount: createSUT(discounts: [tShirtDiscount, voucherDiscount]),
@@ -53,7 +53,7 @@ class BulkDiscountOfferTests: XCTestCase {
         XCTAssertEqual(discount.discount(over:products), finalPrice, file: file, line: line)
     }
 
-    func createSUT(discounts: [BulkDiscount.BulkConfig] = [tShirtDiscount]) -> Offer {
+    func createSUT(discounts: [BulkDiscount.Config] = [tShirtDiscount]) -> Offer {
         return BulkDiscount(config: discounts)
     }
 

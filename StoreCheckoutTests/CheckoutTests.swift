@@ -65,7 +65,7 @@ class CheckoutTests: XCTestCase {
             StoreProduct(code: "MUG", name: "Coffee Mug", price: 6)
         ], offers: [
             BulkDiscount(
-                config: [BulkDiscount.BulkConfig(code: "VOUCHER", newPrice: 3, minimumAmount: 2)]
+                config: [BulkDiscount.Config(code: "VOUCHER", newPrice: 3, minimumAmount: 2)]
             )
         ])
 

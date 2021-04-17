@@ -8,15 +8,15 @@
 import Foundation
 
 class BulkDiscount: Offer {
-    struct BulkConfig {
+    struct Config {
         let code: String
         let newPrice: Float
         let minimumAmount: Int
     }
 
-    private let config: [BulkConfig]
+    private let config: [Config]
 
-    init(config: [BulkConfig]) {
+    init(config: [Config]) {
         self.config = config
     }
 
@@ -27,7 +27,7 @@ class BulkDiscount: Offer {
             .reduce(0, +)
     }
 
-    private func applyDiscount(over products: [StoreProduct], using config: BulkConfig) -> Float {
+    private func applyDiscount(over products: [StoreProduct], using config: Config) -> Float {
         let discountedItem = products.filter { $0.code == config.code }
 
         guard discountedItem.count >= config.minimumAmount else {
