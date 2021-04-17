@@ -26,4 +26,10 @@ class Checkout {
         })
         return costBeforeReductions - reductions
     }
+
+    var applicableOffers: [String] {
+        offers.filter { (offer) -> Bool in
+            offer.discount(over: products) > 0
+        }.map(\.name)
+    }
 }

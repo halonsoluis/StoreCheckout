@@ -9,8 +9,10 @@ import Foundation
 
 class TwoForOneOffer: Offer {
     private let codes: [String]
+    let name: String
 
-    init(discountedProduct codes: [String]) {
+    init(name: String = "Two For One", discountedProduct codes: [String]) {
+        self.name = name
         self.codes = codes
     }
 

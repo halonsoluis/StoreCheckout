@@ -8,6 +8,8 @@
 import Foundation
 
 class BulkDiscount: Offer {
+    var name: String
+
     struct Config {
         let code: String
         let newPrice: Float
@@ -16,7 +18,8 @@ class BulkDiscount: Offer {
 
     private let config: [Config]
 
-    init(config: [Config]) {
+    init(name: String = "Bulk Discount", config: [Config]) {
+        self.name = name
         self.config = config
     }
 
