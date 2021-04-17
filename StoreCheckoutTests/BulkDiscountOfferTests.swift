@@ -9,27 +9,36 @@ import XCTest
 @testable import StoreCheckout
 
 class BulkDiscount: Offer {
-    private let minimumAmount: Int
-    private let newPrice: Float
-    private let code: String
+    private let config: [BulkConfig]
 
-    init(minimumAmount: Int, ofItemWithCode code: String, newPrice: Float) {
-        self.minimumAmount = minimumAmount
-        self.newPrice = newPrice
-        self.code = code
+    init(config: BulkConfig...) {
+        self.config = config
     }
 
     func discount(over products: [StoreProduct]) -> Float {
-        let discountedItem = products.filter { $0.code == code }
+        config
+            .map { (products, $0) }
+            .map(applyDiscount)
+            .reduce(0, +)
+    }
 
-        guard discountedItem.count >= minimumAmount else {
+    func applyDiscount(products: [StoreProduct], config: BulkConfig) -> Float {
+        let discountedItem = products.filter { $0.code == config.code }
+
+        guard discountedItem.count >= config.minimumAmount else {
             return 0
         }
 
         let originalPrice = discountedItem[0].price
-        let discountPerItem = originalPrice - newPrice
+        let discountPerItem = originalPrice - config.newPrice
 
         return Float(discountedItem.count) * discountPerItem
+    }
+
+    struct BulkConfig {
+        let code: String
+        let newPrice: Float
+        let minimumAmount: Int
     }
 }
 
@@ -66,7 +75,13 @@ class BulkDiscountOfferTests: XCTestCase {
     }
 
     func createSUT() -> Offer {
-        BulkDiscount(minimumAmount: 3, ofItemWithCode: "TSHIRT", newPrice: 19)
+        BulkDiscount(
+            config: BulkDiscount.BulkConfig(
+                code: "TSHIRT",
+                newPrice: 19,
+                minimumAmount: 3
+            )
+        )
     }
 
 }
