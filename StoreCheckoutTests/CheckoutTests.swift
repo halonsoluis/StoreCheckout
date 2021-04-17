@@ -49,7 +49,7 @@ class CheckoutTests: XCTestCase {
             StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20),
             StoreProduct(code: "MUG", name: "Coffee Mug", price: 6)
         ], offers: [
-            TwoForOneOffer()
+            TwoForOneOffer(discountedProduct: ["VOUCHER"])
         ])
 
         XCTAssertEqual(checkout.costBeforeReductions, 36.0)
