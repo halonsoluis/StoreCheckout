@@ -8,31 +8,6 @@
 import XCTest
 @testable import StoreCheckout
 
-protocol Offer {
-    func discount(over: [StoreProduct]) -> Float
-}
-
-class Checkout {
-    let products: [StoreProduct]
-    let offers: [Offer]
-
-    init(products: [StoreProduct], offers: [Offer]) {
-        self.products = products
-        self.offers = offers
-    }
-
-    var costBeforeReductions: Float {
-        products.map(\.price).reduce(0, +)
-    }
-
-    var costAfterReductions: Float {
-        let reductions = offers.reduce(0, { reductions, offer in
-            return reductions + offer.discount(over: products)
-        })
-        return costBeforeReductions - reductions
-    }
-}
-
 class CheckoutTests: XCTestCase {
 
     func test_zeroCost_whenNoProducts() throws {
