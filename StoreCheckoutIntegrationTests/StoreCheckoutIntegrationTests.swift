@@ -57,34 +57,42 @@ class StoreCheckoutIntegrationTests: XCTestCase {
     }
 
     func test_checkout_returnFinalCostWhenApplyingBothOffers() {
-        let twoForOneOffer = TwoForOneOffer(discountedProduct: ["VOUCHER"])
-        let bulkOffer = BulkDiscount(
-            config: [BulkDiscount.Config(code: "TSHIRT", newPrice: 19, minimumAmount: 3)]
-        )
-        let sut = createSUT(
-            offers: [ twoForOneOffer, bulkOffer ],
-            products: [
-                Products.voucher,
-                Products.tShirt,
-                Products.mug
-            ]
-        )
-
         //        Items: VOUCHER, TSHIRT, MUG
         //        Total: 32.50€
-        XCTAssertEqual(sut.costAfterReductions, 32.5, accuracy: 0.001)
+        assertFinalPriceWhenTwoOffersAdded(
+            for: [ Products.voucher, Products.tShirt, Products.mug ],
+            is: 32.5
+        )
 
+        //        Items: VOUCHER, TSHIRT, VOUCHER
+        //        Total: 25.00€
+        assertFinalPriceWhenTwoOffersAdded(
+            for: [ Products.voucher, Products.tShirt, Products.voucher ],
+            is: 25
+        )
 
-//
-//        Items: VOUCHER, TSHIRT, VOUCHER
-//        Total: 25.00€
-//
-//        Items: TSHIRT, TSHIRT, TSHIRT, VOUCHER, TSHIRT
-//        Total: 81.00€
-//
-//        Items: VOUCHER, TSHIRT, VOUCHER, VOUCHER, MUG, TSHIRT, TSHIRT
-//        Total: 74.50€
+        //        Items: TSHIRT, TSHIRT, TSHIRT, VOUCHER, TSHIRT
+        //        Total: 81.00€
 
+        assertFinalPriceWhenTwoOffersAdded(
+            for: [ Products.tShirt, Products.tShirt, Products.tShirt, Products.voucher, Products.tShirt ],
+            is: 81
+        )
+
+        //        Items: VOUCHER, TSHIRT, VOUCHER, VOUCHER, MUG, TSHIRT, TSHIRT
+        //        Total: 74.50€
+        assertFinalPriceWhenTwoOffersAdded(
+            for: [
+                Products.voucher,
+                Products.tShirt,
+                Products.voucher,
+                Products.voucher,
+                Products.mug,
+                Products.tShirt,
+                Products.tShirt
+            ],
+            is: 74.50
+        )
     }
 
     //MARK: Helpers
@@ -108,6 +116,20 @@ class StoreCheckoutIntegrationTests: XCTestCase {
         }
         wait(for: [expect], timeout: timeout)
         return retrievedProducts
+    }
+
+    func assertFinalPriceWhenTwoOffersAdded(for products: [StoreProduct], is finalPrice: Float, file: StaticString = #file, line: UInt = #line) {
+
+        let twoForOneOffer = TwoForOneOffer(discountedProduct: ["VOUCHER"])
+        let bulkOffer = BulkDiscount(
+            config: [BulkDiscount.Config(code: "TSHIRT", newPrice: 19, minimumAmount: 3)]
+        )
+        let sut = createSUT(
+            offers: [ twoForOneOffer, bulkOffer ],
+            products: products
+        )
+
+        XCTAssertEqual(sut.costAfterReductions, finalPrice, accuracy: 0.001, file: file, line: line)
     }
 
 }
