@@ -5,16 +5,6 @@
 //  Created by Hugo Alonso on 17/04/2021.
 //
 
-struct StoreProduct: Equatable {
-    let code: String
-    let name: String
-    let price: Float
-}
-
-protocol DataRepository {
-    func retrieveProducts() -> [StoreProduct]
-}
-
 class InMemoryDataRepositoryImplementation: DataRepository {
     func retrieveProducts() -> [StoreProduct] {
         return []

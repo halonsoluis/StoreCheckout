@@ -13,6 +13,8 @@
 		5BFCAE78262AC1A3001CCBAE /* ProductAsCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE77262AC1A3001CCBAE /* ProductAsCodableTests.swift */; };
 		5BFCAE7F262AC4A9001CCBAE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE7E262AC4A9001CCBAE /* Product.swift */; };
 		5BFCAE83262AC4BA001CCBAE /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE82262AC4BA001CCBAE /* Products.swift */; };
+		5BFCAE88262AC511001CCBAE /* StoreProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE87262AC511001CCBAE /* StoreProduct.swift */; };
+		5BFCAE8F262AC557001CCBAE /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE8E262AC557001CCBAE /* DataRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 		5BFCAE77262AC1A3001CCBAE /* ProductAsCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAsCodableTests.swift; sourceTree = "<group>"; };
 		5BFCAE7E262AC4A9001CCBAE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		5BFCAE82262AC4BA001CCBAE /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		5BFCAE87262AC511001CCBAE /* StoreProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreProduct.swift; sourceTree = "<group>"; };
+		5BFCAE8E262AC557001CCBAE /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 		5BFCAE5B262ABA67001CCBAE /* StoreCheckout */ = {
 			isa = PBXGroup;
 			children = (
+				5BFCAE8D262AC542001CCBAE /* Services */,
+				5BFCAE86262AC4FC001CCBAE /* DomainModel */,
 				5BFCAE7D262AC491001CCBAE /* CodableModel */,
 				5BFCAE5C262ABA67001CCBAE /* StoreCheckout.h */,
 				5BFCAE5D262ABA67001CCBAE /* Info.plist */,
@@ -101,6 +107,22 @@
 				5BFCAE82262AC4BA001CCBAE /* Products.swift */,
 			);
 			path = CodableModel;
+			sourceTree = "<group>";
+		};
+		5BFCAE86262AC4FC001CCBAE /* DomainModel */ = {
+			isa = PBXGroup;
+			children = (
+				5BFCAE87262AC511001CCBAE /* StoreProduct.swift */,
+			);
+			path = DomainModel;
+			sourceTree = "<group>";
+		};
+		5BFCAE8D262AC542001CCBAE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5BFCAE8E262AC557001CCBAE /* DataRepository.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +235,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BFCAE7F262AC4A9001CCBAE /* Product.swift in Sources */,
+				5BFCAE8F262AC557001CCBAE /* DataRepository.swift in Sources */,
 				5BFCAE83262AC4BA001CCBAE /* Products.swift in Sources */,
+				5BFCAE88262AC511001CCBAE /* StoreProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
