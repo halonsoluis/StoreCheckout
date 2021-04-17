@@ -4,18 +4,8 @@
 //
 //  Created by Hugo Alonso on 17/04/2021.
 //
-
-struct Product: Codable, Equatable {
-    let code: String
-    let name: String
-    let price: Float
-}
-
-struct Products: Codable {
-    let products: [Product]
-}
-
 import XCTest
+@testable import StoreCheckout
 
 class ProductAsCodableTests: XCTestCase {
 
