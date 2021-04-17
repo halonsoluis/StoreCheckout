@@ -14,14 +14,14 @@ class CheckoutTests: XCTestCase {
     let mug = StoreProduct(code: "MUG", name: "Coffee Mug", price: 6)
 
     func test_zeroCost_whenNoProducts() throws {
-        let checkout = Checkout(products: [], offers: [])
+        let checkout = createSUT(products: [], offers: [])
 
         XCTAssertEqual(checkout.costBeforeReductions, 0)
         XCTAssertEqual(checkout.costAfterReductions, 0)
     }
 
     func test_productCost_whenNoOffers() throws {
-        let checkout = Checkout(products: [voucher, tShirt, mug], offers: [])
+        let checkout = createSUT(products: [voucher, tShirt, mug], offers: [])
 
         XCTAssertEqual(checkout.costBeforeReductions, 31)
         XCTAssertEqual(checkout.costAfterReductions, 31)
@@ -30,12 +30,14 @@ class CheckoutTests: XCTestCase {
 
     func test_productCost_appliesDiscountWhenOfferApply() throws {
         let offer = DummyOffer()
-        let checkout = Checkout(products: [voucher, tShirt, mug], offers: [offer])
+        let checkout = createSUT(products: [voucher, tShirt, mug], offers: [offer])
 
         XCTAssertEqual(checkout.costBeforeReductions, 31.0)
         XCTAssertEqual(checkout.costAfterReductions, 30.0, accuracy: 0.001)
         XCTAssertEqual(checkout.applicableOffers, [offer.name])
     }
+
+    // MARK: - Helpers
 
     struct DummyOffer: Offer {
         let name: String = "-1"
@@ -45,6 +47,10 @@ class CheckoutTests: XCTestCase {
         func discount(over: [StoreProduct]) -> Float {
             return Float(appliedDiscount)
         }
+    }
+
+    private func createSUT(products: [StoreProduct], offers: [Offer]) -> Checkout {
+        CheckoutImplementation(products: products, offers: offers)
     }
 }
 

@@ -7,7 +7,13 @@
 
 import Foundation
 
-public class Checkout {
+public protocol Checkout {
+    var costBeforeReductions: Float { get }
+    var costAfterReductions: Float { get }
+    var applicableOffers: [String] { get }
+}
+
+public class CheckoutImplementation: Checkout {
     let products: [StoreProduct]
     let offers: [Offer]
 

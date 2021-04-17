@@ -104,7 +104,7 @@ class StoreCheckoutIntegrationTests: XCTestCase {
     }
 
     private func createSUT(offers: [Offer], products: [StoreProduct]) -> Checkout {
-        Checkout(products: products, offers: offers)
+        CheckoutImplementation(products: products, offers: offers)
     }
 
     private func retrieveProducts(from repository: DataRepository, timeout: TimeInterval = 5) -> [StoreProduct] {
