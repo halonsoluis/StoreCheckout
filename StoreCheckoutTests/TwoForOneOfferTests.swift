@@ -10,16 +10,19 @@ import XCTest
 
 class TwoForOneOffer: Offer {
     func discount(over products: [StoreProduct]) -> Float {
+        return applyDiscountBasedOnRepeatedProducts(
+            products: amountByProduct(products: products)
+        )
+    }
 
-        let amountOfProducts = amountByProduct(products: products)
-
-        return amountOfProducts.map { (product, count) in
+    private func applyDiscountBasedOnRepeatedProducts(products: [StoreProduct: Int]) -> Float {
+        products.map { (product, count) -> Float in
             let repeatedCount = Int(count / 2)
             return product.price * Float(repeatedCount)
         }.reduce(0, +)
     }
 
-    func amountByProduct(products: [StoreProduct]) -> [StoreProduct: Int] {
+    private func amountByProduct(products: [StoreProduct]) -> [StoreProduct: Int] {
         var amountByProduct: [StoreProduct: Int] = [:]
         products.forEach { product in
             if amountByProduct[product] == nil {
@@ -49,18 +52,6 @@ class TwoForOneOfferTests: XCTestCase {
         let offer = TwoForOneOffer()
         let products = [voucher, tShirt, mug]
         XCTAssertEqual(offer.discount(over:products), 0)
-    }
-
-    func test_offer_returnsAmountOfRepeatedProducts() throws {
-        let offer = TwoForOneOffer()
-
-        let products = [voucher, voucher, mug, mug2, mug]
-
-        XCTAssertEqual(offer.amountByProduct(products: products), [
-            voucher: 2,
-            mug: 2,
-            mug2: 1
-        ])
     }
 
     func test_offer_returnsDiscountOfRepeatedProducts() throws {
