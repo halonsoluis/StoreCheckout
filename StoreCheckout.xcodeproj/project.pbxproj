@@ -22,6 +22,7 @@
 		5BFCAEAC262B19C8001CCBAE /* TwoForOneOfferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */; };
 		5BFCAEB3262B5FF2001CCBAE /* TwoForOneOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEB2262B5FF2001CCBAE /* TwoForOneOffer.swift */; };
 		5BFCAEBB262B6244001CCBAE /* BulkDiscountOfferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEBA262B6244001CCBAE /* BulkDiscountOfferTests.swift */; };
+		5BFCAEBF262B6E7F001CCBAE /* BulkDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEBE262B6E7F001CCBAE /* BulkDiscount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoForOneOfferTests.swift; sourceTree = "<group>"; };
 		5BFCAEB2262B5FF2001CCBAE /* TwoForOneOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoForOneOffer.swift; sourceTree = "<group>"; };
 		5BFCAEBA262B6244001CCBAE /* BulkDiscountOfferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkDiscountOfferTests.swift; sourceTree = "<group>"; };
+		5BFCAEBE262B6E7F001CCBAE /* BulkDiscount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkDiscount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				5BFCAEB2262B5FF2001CCBAE /* TwoForOneOffer.swift */,
+				5BFCAEBE262B6E7F001CCBAE /* BulkDiscount.swift */,
 			);
 			path = Offers;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				5BFCAEA6262B193D001CCBAE /* Offer.swift in Sources */,
 				5BFCAE7F262AC4A9001CCBAE /* Product.swift in Sources */,
+				5BFCAEBF262B6E7F001CCBAE /* BulkDiscount.swift in Sources */,
 				5BFCAE8F262AC557001CCBAE /* DataRepository.swift in Sources */,
 				5BFCAE97262AD4EC001CCBAE /* DataRepositoryImplementation.swift in Sources */,
 				5BFCAEB3262B5FF2001CCBAE /* TwoForOneOffer.swift in Sources */,

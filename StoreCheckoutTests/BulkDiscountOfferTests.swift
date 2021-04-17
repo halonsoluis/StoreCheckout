@@ -8,40 +8,6 @@
 import XCTest
 @testable import StoreCheckout
 
-class BulkDiscount: Offer {
-    struct BulkConfig {
-        let code: String
-        let newPrice: Float
-        let minimumAmount: Int
-    }
-
-    private let config: [BulkConfig]
-
-    init(config: [BulkConfig]) {
-        self.config = config
-    }
-
-    func discount(over products: [StoreProduct]) -> Float {
-        config
-            .map { (products, $0) }
-            .map(applyDiscount)
-            .reduce(0, +)
-    }
-
-    func applyDiscount(products: [StoreProduct], config: BulkConfig) -> Float {
-        let discountedItem = products.filter { $0.code == config.code }
-
-        guard discountedItem.count >= config.minimumAmount else {
-            return 0
-        }
-
-        let originalPrice = discountedItem[0].price
-        let discountPerItem = originalPrice - config.newPrice
-
-        return Float(discountedItem.count) * discountPerItem
-    }
-}
-
 class BulkDiscountOfferTests: XCTestCase {
 
     let voucher = StoreProduct(code: "VOUCHER", name: "Voucher", price: 5)
