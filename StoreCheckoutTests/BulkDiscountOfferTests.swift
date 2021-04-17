@@ -31,12 +31,16 @@ class BulkDiscountOfferTests: XCTestCase {
         assert(discount: BulkDiscount(minimumAmount: 3), for: [], is: 0)
     }
 
-//    func test_offer_returnsZeroOnDifferentProducts() throws {
-//        assert(discount: BulkDiscount(minimumAmount: 3), for: [voucher, tShirt, mug], is: 0)
-//    }
-//
+    func test_offer_returnsZeroOnDifferentProducts() throws {
+        assert(discount: BulkDiscount(minimumAmount: 3), for: [voucher, tShirt, mug], is: 0)
+    }
+
+    func test_offer_returnsZeroWhenRepeatedProductsAmountIsNotOVerTheMinimum() throws {
+        assert(discount: BulkDiscount(minimumAmount: 3), for: [voucher, voucher, mug, mug2, mug], is: 0)
+    }
+
 //    func test_offer_returnsDiscountOfRepeatedProducts() throws {
-//        assert(discount: BulkDiscount(minimumAmount: 3), for: [voucher, voucher, mug, mug2, mug], is: 12.5)
+//        assert(discount: BulkDiscount(minimumAmount: 3), for: [voucher, voucher, voucher], is: 19 * 3)
 //    }
 //
 //    func test_offer_returnsDiscountForTuplesOfRepeatedProducts() throws {
