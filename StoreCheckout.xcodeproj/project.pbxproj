@@ -16,6 +16,7 @@
 		5BFCAE88262AC511001CCBAE /* StoreProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE87262AC511001CCBAE /* StoreProduct.swift */; };
 		5BFCAE8F262AC557001CCBAE /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE8E262AC557001CCBAE /* DataRepository.swift */; };
 		5BFCAE97262AD4EC001CCBAE /* DataRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE96262AD4EC001CCBAE /* DataRepositoryImplementation.swift */; };
+		5BFCAE9B262AD61C001CCBAE /* CheckoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE9A262AD61C001CCBAE /* CheckoutTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		5BFCAE87262AC511001CCBAE /* StoreProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreProduct.swift; sourceTree = "<group>"; };
 		5BFCAE8E262AC557001CCBAE /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		5BFCAE96262AD4EC001CCBAE /* DataRepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryImplementation.swift; sourceTree = "<group>"; };
+		5BFCAE9A262AD61C001CCBAE /* CheckoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				5BFCAE67262ABA67001CCBAE /* DataRepositoryTests.swift */,
 				5BFCAE77262AC1A3001CCBAE /* ProductAsCodableTests.swift */,
 				5BFCAE69262ABA67001CCBAE /* Info.plist */,
+				5BFCAE9A262AD61C001CCBAE /* CheckoutTests.swift */,
 			);
 			path = StoreCheckoutTests;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				5BFCAE78262AC1A3001CCBAE /* ProductAsCodableTests.swift in Sources */,
 				5BFCAE68262ABA67001CCBAE /* DataRepositoryTests.swift in Sources */,
+				5BFCAE9B262AD61C001CCBAE /* CheckoutTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
