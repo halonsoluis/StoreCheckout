@@ -99,8 +99,6 @@
 			children = (
 				5BFCAE9E262B18D8001CCBAE /* CheckoutUseCase */,
 				5BFCAE8D262AC542001CCBAE /* Services */,
-				5BFCAE86262AC4FC001CCBAE /* DomainModel */,
-				5BFCAE7D262AC491001CCBAE /* CodableModel */,
 				5BFCAE5C262ABA67001CCBAE /* StoreCheckout.h */,
 				5BFCAE5D262ABA67001CCBAE /* Info.plist */,
 			);
@@ -110,11 +108,8 @@
 		5BFCAE66262ABA67001CCBAE /* StoreCheckoutTests */ = {
 			isa = PBXGroup;
 			children = (
-				5BFCAE67262ABA67001CCBAE /* DataRepositoryTests.swift */,
-				5BFCAE77262AC1A3001CCBAE /* ProductAsCodableTests.swift */,
-				5BFCAE9A262AD61C001CCBAE /* CheckoutTests.swift */,
-				5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */,
-				5BFCAEBA262B6244001CCBAE /* BulkDiscountOfferTests.swift */,
+				5BFCAEC5262B8BF9001CCBAE /* Services */,
+				5BFCAEC4262B8BF1001CCBAE /* CheckoutUseCase */,
 				5BFCAE69262ABA67001CCBAE /* Info.plist */,
 			);
 			path = StoreCheckoutTests;
@@ -129,19 +124,12 @@
 			path = CodableModel;
 			sourceTree = "<group>";
 		};
-		5BFCAE86262AC4FC001CCBAE /* DomainModel */ = {
-			isa = PBXGroup;
-			children = (
-				5BFCAE87262AC511001CCBAE /* StoreProduct.swift */,
-			);
-			path = DomainModel;
-			sourceTree = "<group>";
-		};
 		5BFCAE8D262AC542001CCBAE /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				5BFCAE8E262AC557001CCBAE /* DataRepository.swift */,
 				5BFCAE96262AD4EC001CCBAE /* DataRepositoryImplementation.swift */,
+				5BFCAE7D262AC491001CCBAE /* CodableModel */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -149,9 +137,10 @@
 		5BFCAE9E262B18D8001CCBAE /* CheckoutUseCase */ = {
 			isa = PBXGroup;
 			children = (
-				5BFCAEB1262B5FE1001CCBAE /* Offers */,
+				5BFCAE87262AC511001CCBAE /* StoreProduct.swift */,
 				5BFCAE9F262B18EC001CCBAE /* Checkout.swift */,
 				5BFCAEA5262B193D001CCBAE /* Offer.swift */,
+				5BFCAEB1262B5FE1001CCBAE /* Offers */,
 			);
 			path = CheckoutUseCase;
 			sourceTree = "<group>";
@@ -163,6 +152,25 @@
 				5BFCAEBE262B6E7F001CCBAE /* BulkDiscount.swift */,
 			);
 			path = Offers;
+			sourceTree = "<group>";
+		};
+		5BFCAEC4262B8BF1001CCBAE /* CheckoutUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				5BFCAE9A262AD61C001CCBAE /* CheckoutTests.swift */,
+				5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */,
+				5BFCAEBA262B6244001CCBAE /* BulkDiscountOfferTests.swift */,
+			);
+			path = CheckoutUseCase;
+			sourceTree = "<group>";
+		};
+		5BFCAEC5262B8BF9001CCBAE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5BFCAE77262AC1A3001CCBAE /* ProductAsCodableTests.swift */,
+				5BFCAE67262ABA67001CCBAE /* DataRepositoryTests.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
