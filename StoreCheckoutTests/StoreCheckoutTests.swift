@@ -5,29 +5,47 @@
 //  Created by Hugo Alonso on 17/04/2021.
 //
 
+struct Product: Codable {
+    let code: String
+    let name: String
+    let price: Float
+}
+
+struct Products: Codable {
+    let products: [Product]
+}
+
 import XCTest
 @testable import StoreCheckout
 
 class StoreCheckoutTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_products_decodeWhenValid() throws {
+        let json = """
+            {
+            "products": [
+              {
+                "code": "VOUCHER",
+                "name": "Voucher",
+                "price": 5
+              },
+              {
+                "code": "TSHIRT",
+                "name": "T-Shirt",
+                "price": 20
+              },
+              {
+                "code": "MUG",
+                "name": "Coffee Mug",
+                "price": 7.5
+              }
+            ]
+          }
+        """
+        let data = json.data(using: .utf8)!
+        let products: Products = try! JSONDecoder()
+            .decode(Products.self, from: data)
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        XCTAssertEqual(products.products.count, 3)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
