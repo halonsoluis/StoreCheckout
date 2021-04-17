@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DataRepository {
-    func retrieveProducts() -> [StoreProduct]
+    func retrieveProducts(onComplete completion: @escaping ([StoreProduct]) -> Void) -> Void
 }
