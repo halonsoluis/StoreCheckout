@@ -39,6 +39,7 @@ class StoreCheckoutIntegrationTests: XCTestCase {
         let receivedProducts = retrieveProducts(from: sut)
 
         XCTAssertEqual(receivedProducts.count, 3)
+        XCTAssertEqual(receivedProducts.map(\.code), ["VOUCHER", "TSHIRT", "MUG"])
     }
 
     func retrieveProducts(from repository: DataRepository, timeout: TimeInterval = 5) -> [StoreProduct] {
