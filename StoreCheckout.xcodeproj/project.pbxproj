@@ -20,6 +20,7 @@
 		5BFCAEA0262B18EC001CCBAE /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE9F262B18EC001CCBAE /* Checkout.swift */; };
 		5BFCAEA6262B193D001CCBAE /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEA5262B193D001CCBAE /* Offer.swift */; };
 		5BFCAEAC262B19C8001CCBAE /* TwoForOneOfferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */; };
+		5BFCAEB3262B5FF2001CCBAE /* TwoForOneOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEB2262B5FF2001CCBAE /* TwoForOneOffer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5BFCAE9F262B18EC001CCBAE /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
 		5BFCAEA5262B193D001CCBAE /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoForOneOfferTests.swift; sourceTree = "<group>"; };
+		5BFCAEB2262B5FF2001CCBAE /* TwoForOneOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoForOneOffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,10 +144,19 @@
 		5BFCAE9E262B18D8001CCBAE /* CheckoutUseCase */ = {
 			isa = PBXGroup;
 			children = (
+				5BFCAEB1262B5FE1001CCBAE /* Offers */,
 				5BFCAE9F262B18EC001CCBAE /* Checkout.swift */,
 				5BFCAEA5262B193D001CCBAE /* Offer.swift */,
 			);
 			path = CheckoutUseCase;
+			sourceTree = "<group>";
+		};
+		5BFCAEB1262B5FE1001CCBAE /* Offers */ = {
+			isa = PBXGroup;
+			children = (
+				5BFCAEB2262B5FF2001CCBAE /* TwoForOneOffer.swift */,
+			);
+			path = Offers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				5BFCAE7F262AC4A9001CCBAE /* Product.swift in Sources */,
 				5BFCAE8F262AC557001CCBAE /* DataRepository.swift in Sources */,
 				5BFCAE97262AD4EC001CCBAE /* DataRepositoryImplementation.swift in Sources */,
+				5BFCAEB3262B5FF2001CCBAE /* TwoForOneOffer.swift in Sources */,
 				5BFCAEA0262B18EC001CCBAE /* Checkout.swift in Sources */,
 				5BFCAE83262AC4BA001CCBAE /* Products.swift in Sources */,
 				5BFCAE88262AC511001CCBAE /* StoreProduct.swift in Sources */,
