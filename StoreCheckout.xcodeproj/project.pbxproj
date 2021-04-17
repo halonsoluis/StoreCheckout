@@ -109,8 +109,8 @@
 				5BFCAE67262ABA67001CCBAE /* DataRepositoryTests.swift */,
 				5BFCAE77262AC1A3001CCBAE /* ProductAsCodableTests.swift */,
 				5BFCAE9A262AD61C001CCBAE /* CheckoutTests.swift */,
-				5BFCAE69262ABA67001CCBAE /* Info.plist */,
 				5BFCAEAB262B19C8001CCBAE /* TwoForOneOfferTests.swift */,
+				5BFCAE69262ABA67001CCBAE /* Info.plist */,
 			);
 			path = StoreCheckoutTests;
 			sourceTree = "<group>";

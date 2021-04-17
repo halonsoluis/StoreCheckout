@@ -16,30 +16,24 @@ class TwoForOneOfferTests: XCTestCase {
     let mug2 = StoreProduct(code: "MUG-2", name: "Coffee Mug", price: 7.5)
 
     func test_offer_returnsNoDiscountOnEmptyBasket() throws {
-        let offer = TwoForOneOffer()
-
-        XCTAssertEqual(offer.discount(over: []), 0)
+        assert(discount: TwoForOneOffer(), for: [], is: 0)
     }
 
     func test_offer_returnsZeroOnDifferentProducts() throws {
-        let offer = TwoForOneOffer()
-        let products = [voucher, tShirt, mug]
-        XCTAssertEqual(offer.discount(over:products), 0)
+        assert(discount: TwoForOneOffer(), for: [voucher, tShirt, mug], is: 0)
     }
 
     func test_offer_returnsDiscountOfRepeatedProducts() throws {
-        let offer = TwoForOneOffer()
-
-        let products = [voucher, voucher, mug, mug2, mug]
-
-        XCTAssertEqual(offer.discount(over:products), 12.5)
+        assert(discount: TwoForOneOffer(), for: [voucher, voucher, mug, mug2, mug], is: 12.5)
     }
 
     func test_offer_returnsDiscountForTuplesOfRepeatedProducts() throws {
-        let offer = TwoForOneOffer()
+        assert(discount: TwoForOneOffer(), for: [voucher, voucher, voucher, mug, mug2, mug], is: 12.5)
+    }
 
-        let products = [voucher, voucher, voucher, mug, mug2, mug]
+    // MARK: - Helpers
 
-        XCTAssertEqual(offer.discount(over:products), 12.5)
+    func assert(discount: Offer, for products: [StoreProduct], is finalPrice: Float, file: StaticString = #file, line: UInt = #line) {
+        XCTAssertEqual(discount.discount(over:products), finalPrice, file: file, line: line)
     }
 }
