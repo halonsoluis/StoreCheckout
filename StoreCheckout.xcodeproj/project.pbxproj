@@ -25,6 +25,7 @@
 		5BFCAEBF262B6E7F001CCBAE /* BulkDiscount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAEBE262B6E7F001CCBAE /* BulkDiscount.swift */; };
 		5BFCAF01262B96CB001CCBAE /* StoreCheckoutIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAF00262B96CB001CCBAE /* StoreCheckoutIntegrationTests.swift */; };
 		5BFCAF03262B96CB001CCBAE /* StoreCheckout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFCAE59262ABA67001CCBAE /* StoreCheckout.framework */; };
+		5BFCAF0D262B9A91001CCBAE /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAF0C262B9A91001CCBAE /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		5BFCAEFE262B96CB001CCBAE /* StoreCheckoutIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreCheckoutIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFCAF00262B96CB001CCBAE /* StoreCheckoutIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCheckoutIntegrationTests.swift; sourceTree = "<group>"; };
 		5BFCAF02262B96CB001CCBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BFCAF0C262B9A91001CCBAE /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			children = (
 				5BFCAE8E262AC557001CCBAE /* DataRepository.swift */,
 				5BFCAE96262AD4EC001CCBAE /* DataRepositoryImplementation.swift */,
+				5BFCAF0C262B9A91001CCBAE /* URLSessionHTTPClient.swift */,
 				5BFCAE7D262AC491001CCBAE /* CodableModel */,
 			);
 			path = Services;
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BFCAEA6262B193D001CCBAE /* Offer.swift in Sources */,
+				5BFCAF0D262B9A91001CCBAE /* URLSessionHTTPClient.swift in Sources */,
 				5BFCAE7F262AC4A9001CCBAE /* Product.swift in Sources */,
 				5BFCAEBF262B6E7F001CCBAE /* BulkDiscount.swift in Sources */,
 				5BFCAE8F262AC557001CCBAE /* DataRepository.swift in Sources */,
