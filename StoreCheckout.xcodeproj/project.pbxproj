@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5BFCAE63262ABA67001CCBAE /* StoreCheckout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFCAE59262ABA67001CCBAE /* StoreCheckout.framework */; };
-		5BFCAE68262ABA67001CCBAE /* StoreCheckoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE67262ABA67001CCBAE /* StoreCheckoutTests.swift */; };
+		5BFCAE68262ABA67001CCBAE /* DataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAE67262ABA67001CCBAE /* DataRepositoryTests.swift */; };
 		5BFCAE6A262ABA67001CCBAE /* StoreCheckout.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCAE5C262ABA67001CCBAE /* StoreCheckout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -27,7 +27,7 @@
 		5BFCAE5C262ABA67001CCBAE /* StoreCheckout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreCheckout.h; sourceTree = "<group>"; };
 		5BFCAE5D262ABA67001CCBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BFCAE62262ABA67001CCBAE /* StoreCheckoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreCheckoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BFCAE67262ABA67001CCBAE /* StoreCheckoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCheckoutTests.swift; sourceTree = "<group>"; };
+		5BFCAE67262ABA67001CCBAE /* DataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryTests.swift; sourceTree = "<group>"; };
 		5BFCAE69262ABA67001CCBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +80,7 @@
 		5BFCAE66262ABA67001CCBAE /* StoreCheckoutTests */ = {
 			isa = PBXGroup;
 			children = (
-				5BFCAE67262ABA67001CCBAE /* StoreCheckoutTests.swift */,
+				5BFCAE67262ABA67001CCBAE /* DataRepositoryTests.swift */,
 				5BFCAE69262ABA67001CCBAE /* Info.plist */,
 			);
 			path = StoreCheckoutTests;
@@ -201,7 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BFCAE68262ABA67001CCBAE /* StoreCheckoutTests.swift in Sources */,
+				5BFCAE68262ABA67001CCBAE /* DataRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
