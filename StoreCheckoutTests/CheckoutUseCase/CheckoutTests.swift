@@ -37,28 +37,6 @@ class CheckoutTests: XCTestCase {
         XCTAssertEqual(checkout.applicableOffers, [offer.name])
     }
 
-    // Integration Test
-    func test_productCost_appliesDiscountWhithTwoForOneOffer() throws {
-        let offer = TwoForOneOffer(discountedProduct: ["VOUCHER"])
-        let checkout = Checkout(products: [voucher, voucher, tShirt, mug], offers: [offer])
-
-        XCTAssertEqual(checkout.costBeforeReductions, 36.0)
-        XCTAssertEqual(checkout.costAfterReductions, 31.0, accuracy: 0.001)
-        XCTAssertEqual(checkout.applicableOffers, [offer.name])
-    }
-
-    // Integration Test
-    func test_productCost_appliesDiscountWhithBulkVoucherOffer() throws {
-        let offer = BulkDiscount(
-            config: [BulkDiscount.Config(code: "VOUCHER", newPrice: 3, minimumAmount: 2)]
-        )
-        let checkout = Checkout(products: [voucher, voucher, tShirt, mug], offers: [offer])
-
-        XCTAssertEqual(checkout.costBeforeReductions, 36.0)
-        XCTAssertEqual(checkout.costAfterReductions, 32.0, accuracy: 0.001)
-        XCTAssertEqual(checkout.applicableOffers, [offer.name])
-    }
-
     struct DummyOffer: Offer {
         let name: String = "-1"
 

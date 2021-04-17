@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Offer {
+public protocol Offer {
     var name: String { get }
     
     func discount(over: [StoreProduct]) -> Float

@@ -7,23 +7,29 @@
 
 import Foundation
 
-class BulkDiscount: Offer {
-    var name: String
+public class BulkDiscount: Offer {
+    public var name: String
 
-    struct Config {
+    public struct Config {
         let code: String
         let newPrice: Float
         let minimumAmount: Int
+
+        public init(code: String, newPrice: Float, minimumAmount: Int) {
+            self.code = code
+            self.newPrice = newPrice
+            self.minimumAmount = minimumAmount
+        }
     }
 
     private let config: [Config]
 
-    init(name: String = "Bulk Discount", config: [Config]) {
+    public init(name: String = "Bulk Discount", config: [Config]) {
         self.name = name
         self.config = config
     }
 
-    func discount(over products: [StoreProduct]) -> Float {
+    public func discount(over products: [StoreProduct]) -> Float {
         config
             .map { (products, $0) }
             .map(applyDiscount)

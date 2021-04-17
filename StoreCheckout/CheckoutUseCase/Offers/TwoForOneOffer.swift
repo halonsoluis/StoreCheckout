@@ -7,16 +7,16 @@
 
 import Foundation
 
-class TwoForOneOffer: Offer {
+public class TwoForOneOffer: Offer {
     private let codes: [String]
-    let name: String
+    public let name: String
 
-    init(name: String = "Two For One", discountedProduct codes: [String]) {
+    public init(name: String = "Two For One", discountedProduct codes: [String]) {
         self.name = name
         self.codes = codes
     }
 
-    func discount(over products: [StoreProduct]) -> Float {
+    public func discount(over products: [StoreProduct]) -> Float {
         codes
             .map { (products, $0) }
             .map(applyDiscount)
