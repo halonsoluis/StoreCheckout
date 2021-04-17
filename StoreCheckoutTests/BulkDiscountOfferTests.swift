@@ -9,14 +9,27 @@ import XCTest
 @testable import StoreCheckout
 
 class BulkDiscount: Offer {
-    let minimumAmount: Int
+    private let minimumAmount: Int
+    private let newPrice: Float
+    private let code: String
 
-    init(minimumAmount: Int) {
+    init(minimumAmount: Int = 3, ofItemWithCode code: String = "TSHIRT", newPrice: Float = 19) {
         self.minimumAmount = minimumAmount
+        self.newPrice = newPrice
+        self.code = code
     }
 
-    func discount(over: [StoreProduct]) -> Float {
-        return 0
+    func discount(over products: [StoreProduct]) -> Float {
+        let discountedItem = products.filter { $0.code == code }
+
+        guard discountedItem.count >= minimumAmount else {
+            return 0
+        }
+
+        let originalPrice = discountedItem[0].price
+        let discountPerItem = originalPrice - newPrice
+
+        return Float(discountedItem.count) * discountPerItem
     }
 }
 
@@ -39,9 +52,9 @@ class BulkDiscountOfferTests: XCTestCase {
         assert(discount: BulkDiscount(minimumAmount: 3), for: [voucher, voucher, mug, mug2, mug], is: 0)
     }
 
-//    func test_offer_returnsDiscountOfRepeatedProducts() throws {
-//        assert(discount: BulkDiscount(minimumAmount: 3), for: [voucher, voucher, voucher], is: 19 * 3)
-//    }
+    func test_offer_returnsDiscountOfRepeatedProducts() throws {
+        assert(discount: BulkDiscount(minimumAmount: 3), for: [tShirt, tShirt, tShirt], is: 3)
+    }
 //
 //    func test_offer_returnsDiscountForTuplesOfRepeatedProducts() throws {
 //        assert(discount: BulkDiscount(minimumAmount: 3), for: [voucher, voucher, voucher, mug, mug2, mug], is: 12.5)
