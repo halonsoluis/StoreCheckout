@@ -41,7 +41,7 @@ class CheckoutTests: XCTestCase {
         XCTAssertEqual(checkout.costAfterReductions, 30.0, accuracy: 0.001)
     }
 
-    //Integration Test
+    // Integration Test
     func test_productCost_appliesDiscountWhithTwoForOneOffer() throws {
         let checkout = Checkout(products: [
             StoreProduct(code: "VOUCHER", name: "Voucher", price: 5),
@@ -54,6 +54,23 @@ class CheckoutTests: XCTestCase {
 
         XCTAssertEqual(checkout.costBeforeReductions, 36.0)
         XCTAssertEqual(checkout.costAfterReductions, 31.0, accuracy: 0.001)
+    }
+
+    // Integration Test
+    func test_productCost_appliesDiscountWhithBulkVoucherOffer() throws {
+        let checkout = Checkout(products: [
+            StoreProduct(code: "VOUCHER", name: "Voucher", price: 5),
+            StoreProduct(code: "VOUCHER", name: "Voucher", price: 5),
+            StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20),
+            StoreProduct(code: "MUG", name: "Coffee Mug", price: 6)
+        ], offers: [
+            BulkDiscount(
+                config: [BulkDiscount.BulkConfig(code: "VOUCHER", newPrice: 3, minimumAmount: 2)]
+            )
+        ])
+
+        XCTAssertEqual(checkout.costBeforeReductions, 36.0)
+        XCTAssertEqual(checkout.costAfterReductions, 32.0, accuracy: 0.001)
     }
 
     struct DummyOffer: Offer {
