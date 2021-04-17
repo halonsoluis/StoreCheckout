@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import StoreCheckout
+import StoreCheckout
 
 class StoreCheckoutIntegrationTests: XCTestCase {
 
@@ -14,7 +14,7 @@ class StoreCheckoutIntegrationTests: XCTestCase {
         let client = URLSessionHTTPClient()
         let sut: DataRepository = DataRepositoryImplementation(client: client)
 
-        let receivedProducts = retrieveProducts(from: sut)
+        let receivedProducts = retrieveProducts(from: sut, timeout: 5)
 
         XCTAssertEqual(receivedProducts.count, 3)
         XCTAssertEqual(receivedProducts.map(\.code), ["VOUCHER", "TSHIRT", "MUG"])
@@ -25,10 +25,10 @@ class StoreCheckoutIntegrationTests: XCTestCase {
         let sut = createSUT(
             offers: [ offer ],
             products: [
-                Products.voucher,
-                Products.voucher,
-                Products.tShirt,
-                Products.mug
+                voucher,
+                voucher,
+                tShirt,
+                mug
             ]
         )
 
@@ -44,10 +44,10 @@ class StoreCheckoutIntegrationTests: XCTestCase {
         let sut = createSUT(
             offers: [ offer ],
             products: [
-                Products.voucher,
-                Products.voucher,
-                Products.tShirt,
-                Products.mug
+                voucher,
+                voucher,
+                tShirt,
+                mug
             ]
         )
 
@@ -60,14 +60,14 @@ class StoreCheckoutIntegrationTests: XCTestCase {
         //        Items: VOUCHER, TSHIRT, MUG
         //        Total: 32.50€
         assertFinalPriceWhenTwoOffersAdded(
-            for: [ Products.voucher, Products.tShirt, Products.mug ],
+            for: [ voucher, tShirt, mug ],
             is: 32.5
         )
 
         //        Items: VOUCHER, TSHIRT, VOUCHER
         //        Total: 25.00€
         assertFinalPriceWhenTwoOffersAdded(
-            for: [ Products.voucher, Products.tShirt, Products.voucher ],
+            for: [ voucher, tShirt, voucher ],
             is: 25
         )
 
@@ -75,7 +75,13 @@ class StoreCheckoutIntegrationTests: XCTestCase {
         //        Total: 81.00€
 
         assertFinalPriceWhenTwoOffersAdded(
-            for: [ Products.tShirt, Products.tShirt, Products.tShirt, Products.voucher, Products.tShirt ],
+            for: [
+                tShirt,
+                tShirt,
+                tShirt,
+                voucher,
+                tShirt
+            ],
             is: 81
         )
 
@@ -83,13 +89,13 @@ class StoreCheckoutIntegrationTests: XCTestCase {
         //        Total: 74.50€
         assertFinalPriceWhenTwoOffersAdded(
             for: [
-                Products.voucher,
-                Products.tShirt,
-                Products.voucher,
-                Products.voucher,
-                Products.mug,
-                Products.tShirt,
-                Products.tShirt
+                voucher,
+                tShirt,
+                voucher,
+                voucher,
+                mug,
+                tShirt,
+                tShirt
             ],
             is: 74.50
         )
@@ -97,25 +103,8 @@ class StoreCheckoutIntegrationTests: XCTestCase {
 
     //MARK: Helpers
 
-    struct Products {
-        static let voucher = StoreProduct(code: "VOUCHER", name: "Voucher", price: 5)
-        static let tShirt = StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20)
-        static let mug = StoreProduct(code: "MUG", name: "Coffee Mug", price: 7.5)
-    }
-
     private func createSUT(offers: [Offer], products: [StoreProduct]) -> Checkout {
         CheckoutImplementation(products: products, offers: offers)
-    }
-
-    private func retrieveProducts(from repository: DataRepository, timeout: TimeInterval = 5) -> [StoreProduct] {
-        var retrievedProducts: [StoreProduct] = []
-        let expect = expectation(description: "Waiting for expectation")
-        repository.retrieveProducts { (products) in
-            retrievedProducts = products
-            expect.fulfill()
-        }
-        wait(for: [expect], timeout: timeout)
-        return retrievedProducts
     }
 
     func assertFinalPriceWhenTwoOffersAdded(for products: [StoreProduct], is finalPrice: Float, file: StaticString = #file, line: UInt = #line) {

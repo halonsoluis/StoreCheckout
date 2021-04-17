@@ -10,10 +10,6 @@ import XCTest
 
 class BulkDiscountOfferTests: XCTestCase {
 
-    let voucher = StoreProduct(code: "VOUCHER", name: "Voucher", price: 5)
-    let tShirt = StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20)
-    let mug = StoreProduct(code: "MUG", name: "Coffee Mug", price: 7.5)
-
     static let tShirtDiscount = BulkDiscount.Config(code: "TSHIRT", newPrice: 19, minimumAmount: 3)
 
     func test_offer_returnsNoDiscountOnEmptyBasket() throws {

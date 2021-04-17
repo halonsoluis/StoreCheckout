@@ -14,7 +14,7 @@ class DataRepositoryTests: XCTestCase {
         let (repository, httpSpy) = createSUT()
         httpSpy.returnedError = NSError(domain: "AnyDomain", code: -23, userInfo: nil)
 
-        let products = retrieveProducts(from: repository)
+        let products = retrieveProducts(from: repository, timeout: 1)
 
         XCTAssertEqual(products, [])
     }
@@ -25,7 +25,7 @@ class DataRepositoryTests: XCTestCase {
             "not a valid json": []
         ]
 
-        let products = retrieveProducts(from: repository)
+        let products = retrieveProducts(from: repository, timeout: 1)
 
         XCTAssertEqual(products, [])
     }
@@ -54,13 +54,9 @@ class DataRepositoryTests: XCTestCase {
             ]
         ]
 
-        let products = retrieveProducts(from: repository)
+        let products = retrieveProducts(from: repository, timeout: 1)
 
-        XCTAssertEqual(products, [
-            StoreProduct(code: "VOUCHER", name: "Voucher", price: 5),
-            StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20),
-            StoreProduct(code: "MUG", name: "Coffee Mug", price: 7.5)
-        ])
+        XCTAssertEqual(products, [voucher, tShirt, mug])
     }
 
     // MARK: Helpers
@@ -69,17 +65,6 @@ class DataRepositoryTests: XCTestCase {
         let httpSpy = HTTPClientSpy()
         let repository = DataRepositoryImplementation(client: httpSpy)
         return (repository, httpSpy)
-    }
-
-    func retrieveProducts(from repository: DataRepository) -> [StoreProduct] {
-        var retrievedProducts: [StoreProduct] = []
-        let expect = expectation(description: "Waiting for expectation")
-        repository.retrieveProducts { (products) in
-            retrievedProducts = products
-            expect.fulfill()
-        }
-        wait(for: [expect], timeout: 1)
-        return retrievedProducts
     }
 
     class HTTPClientSpy: HTTPClient {

@@ -9,10 +9,6 @@ import XCTest
 @testable import StoreCheckout
 
 class CheckoutTests: XCTestCase {
-    let voucher = StoreProduct(code: "VOUCHER", name: "Voucher", price: 5)
-    let tShirt = StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20)
-    let mug = StoreProduct(code: "MUG", name: "Coffee Mug", price: 6)
-
     func test_zeroCost_whenNoProducts() throws {
         let checkout = createSUT(products: [], offers: [])
 
@@ -23,8 +19,8 @@ class CheckoutTests: XCTestCase {
     func test_productCost_whenNoOffers() throws {
         let checkout = createSUT(products: [voucher, tShirt, mug], offers: [])
 
-        XCTAssertEqual(checkout.costBeforeReductions, 31)
-        XCTAssertEqual(checkout.costAfterReductions, 31)
+        XCTAssertEqual(checkout.costBeforeReductions, 32.5)
+        XCTAssertEqual(checkout.costAfterReductions, 32.5)
         XCTAssertEqual(checkout.applicableOffers, [])
     }
 
@@ -32,8 +28,8 @@ class CheckoutTests: XCTestCase {
         let offer = DummyOffer()
         let checkout = createSUT(products: [voucher, tShirt, mug], offers: [offer])
 
-        XCTAssertEqual(checkout.costBeforeReductions, 31.0)
-        XCTAssertEqual(checkout.costAfterReductions, 30.0, accuracy: 0.001)
+        XCTAssertEqual(checkout.costBeforeReductions, 32.5)
+        XCTAssertEqual(checkout.costAfterReductions, 31.5, accuracy: 0.001)
         XCTAssertEqual(checkout.applicableOffers, [offer.name])
     }
 

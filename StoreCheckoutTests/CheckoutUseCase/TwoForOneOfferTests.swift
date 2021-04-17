@@ -9,10 +9,6 @@ import XCTest
 @testable import StoreCheckout
 
 class TwoForOneOfferTests: XCTestCase {
-
-    let voucher = StoreProduct(code: "VOUCHER", name: "Voucher", price: 5)
-    let tShirt = StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20)
-    let mug = StoreProduct(code: "MUG", name: "Coffee Mug", price: 7.5)
     let mug2 = StoreProduct(code: "MUG-2", name: "Coffee Mug", price: 7.5)
 
     func test_offer_returnsNoDiscountOnEmptyBasket() throws {
