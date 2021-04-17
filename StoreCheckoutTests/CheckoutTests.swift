@@ -22,11 +22,11 @@ class Checkout {
     }
 
     var costBeforeReductions: Float {
-        return 0
+        products.map(\.price).reduce(0, +)
     }
 
     var costAfterReductions: Float {
-        return 0
+        costBeforeReductions
     }
 }
 
@@ -37,5 +37,16 @@ class CheckoutTests: XCTestCase {
 
         XCTAssertEqual(checkout.costBeforeReductions, 0)
         XCTAssertEqual(checkout.costAfterReductions, 0)
+    }
+
+    func test_productCost_whenNoOffers() throws {
+        let checkout = Checkout(products: [
+            StoreProduct(code: "VOUCHER", name: "Voucher", price: 5),
+            StoreProduct(code: "TSHIRT", name: "T-Shirt", price: 20),
+            StoreProduct(code: "MUG", name: "Coffee Mug", price: 6)
+        ], offers: [])
+
+        XCTAssertEqual(checkout.costBeforeReductions, 31)
+        XCTAssertEqual(checkout.costAfterReductions, 31)
     }
 }
