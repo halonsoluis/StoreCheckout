@@ -34,6 +34,8 @@
 		5BFCAF2B262BA9DF001CCBAE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BFCAF2A262BA9DF001CCBAE /* Preview Assets.xcassets */; };
 		5BFCAF36262BA9DF001CCBAE /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAF35262BA9DF001CCBAE /* StoreTests.swift */; };
 		5BFCAF41262BA9DF001CCBAE /* StoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCAF40262BA9DF001CCBAE /* StoreUITests.swift */; };
+		5BFCAF5C262C8AC4001CCBAE /* StoreCheckout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFCAE59262ABA67001CCBAE /* StoreCheckout.framework */; };
+		5BFCAF5D262C8AC4001CCBAE /* StoreCheckout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFCAE59262ABA67001CCBAE /* StoreCheckout.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +67,28 @@
 			remoteGlobalIDString = 5BFCAF20262BA9DD001CCBAE;
 			remoteInfo = Store;
 		};
+		5BFCAF52262C8A7B001CCBAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BFCAE50262ABA67001CCBAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BFCAE58262ABA67001CCBAE;
+			remoteInfo = StoreCheckout;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5BFCAF5E262C8AC4001CCBAE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5BFCAF5D262C8AC4001CCBAE /* StoreCheckout.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5BFCAE59262ABA67001CCBAE /* StoreCheckout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StoreCheckout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BFCAF5C262C8AC4001CCBAE /* StoreCheckout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +188,7 @@
 				5BFCAF34262BA9DF001CCBAE /* StoreTests */,
 				5BFCAF3F262BA9DF001CCBAE /* StoreUITests */,
 				5BFCAE5A262ABA67001CCBAE /* Products */,
+				5BFCAF54262C8AA9001CCBAE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -308,6 +333,13 @@
 			path = StoreUITests;
 			sourceTree = "<group>";
 		};
+		5BFCAF54262C8AA9001CCBAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -383,10 +415,12 @@
 				5BFCAF1D262BA9DD001CCBAE /* Sources */,
 				5BFCAF1E262BA9DD001CCBAE /* Frameworks */,
 				5BFCAF1F262BA9DD001CCBAE /* Resources */,
+				5BFCAF5E262C8AC4001CCBAE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5BFCAF53262C8A7B001CCBAE /* PBXTargetDependency */,
 			);
 			name = Store;
 			productName = Store;
@@ -619,6 +653,11 @@
 			target = 5BFCAF20262BA9DD001CCBAE /* Store */;
 			targetProxy = 5BFCAF3D262BA9DF001CCBAE /* PBXContainerItemProxy */;
 		};
+		5BFCAF53262C8A7B001CCBAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BFCAE58262ABA67001CCBAE /* StoreCheckout */;
+			targetProxy = 5BFCAF52262C8A7B001CCBAE /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -762,7 +801,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = halonso.StoreCheckout;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = "";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -787,7 +828,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = halonso.StoreCheckout;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = "";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

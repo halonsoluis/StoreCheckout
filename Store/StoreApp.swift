@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreCheckout
 
 @main
 struct StoreApp: App {
